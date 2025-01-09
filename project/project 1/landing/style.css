@@ -1,0 +1,74 @@
+* {
+background-color:rgb(252, 180, 255);
+}
+
+@font-face {
+  font-family: "Nudles";
+  src: url("../assets/Nudles-Bold.woff") format('woff');
+  font-weight: bold;
+}
+
+.title {
+  font-family: Nudles;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 2rem;
+  animation: tilt 2s infinite;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.list {
+  font-family: Nudles;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 2rem;
+  line-height: 160%;
+}
+
+.list a {
+  text-decoration: none;
+  color: inherit;  
+  display: inline-block;     
+}
+
+
+.dogs a:hover {
+  background: none;
+  transform: rotate(-7deg);
+  color: #ff5733; 
+}
+
+.cats a:hover {
+  background: none;
+  transform: rotate(7deg);
+  color: #33c3ff;
+}
+
+.hamsters a:hover {
+  background: none;
+  transform: rotate(-7deg);
+  color: #8cff33;
+}
+
+.capibaras a:hover {
+  background: none;
+  transform: rotate(7deg);
+  color: #b845ff;
+}
