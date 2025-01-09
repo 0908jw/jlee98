@@ -61,14 +61,14 @@ background-color:rgb(252, 180, 255);
   color: #33c3ff;
 }
 
-.hamsters a:hover {
+.monkeys a:hover {
   background: none;
   transform: rotate(-7deg);
-  color: #8cff33;
+  color: #9bf259;
 }
 
 .capibaras a:hover {
   background: none;
   transform: rotate(7deg);
-  color: #b845ff;
+  color: #7134ff;
 }
