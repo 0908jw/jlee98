@@ -3,14 +3,14 @@ const titleElement = document.getElementById('game-title');
 const victorySound = document.getElementById('congrats');
 
 const images = [
-  'url(https://i.pinimg.com/736x/6d/4f/88/6d4f880d13271ae6705872aa956b15d0.jpg)',
-  'url(https://i.pinimg.com/736x/c1/49/4c/c1494c0cba7ee79597c68aff12fb6b88.jpg)',
-  'url(https://i.pinimg.com/736x/44/19/c3/4419c3c2e1e188b928dc480d0853d795.jpg)',
-  'url(https://i.pinimg.com/736x/53/d2/e3/53d2e34e7a0014caa724a73eab9e66c8.jpg)',
-  'url(https://i.pinimg.com/736x/4d/0a/2d/4d0a2df5d7a8300c1fa373d07f4afa3e.jpg)',
-  'url(https://i.pinimg.com/736x/07/21/90/072190b0913b0fbd92fcd9941ba7f57c.jpg)',
-  'url(https://i.pinimg.com/736x/ad/ab/e6/adabe64b9c091a13598f454c3b4e7b87.jpg)',
-  'url(https://i.pinimg.com/736x/95/1b/1b/951b1bee964388ab0dd545c6cc9de9d3.jpg)',
+  'url(https://i.pinimg.com/736x/4a/82/e6/4a82e6e85cd4381168409b2be58890ba.jpg)',
+  'url(https://i.pinimg.com/736x/35/f2/da/35f2da6ffc1fce738fa768180d72d739.jpg)',
+  'url(https://i.pinimg.com/736x/d0/1c/ea/d01cea60e2cb871a92266915de02bd54.jpg)',
+  'url(https://i.pinimg.com/736x/65/5f/68/655f68a110090a2534f472c299acc3b9.jpg)',
+  'url(https://i.pinimg.com/736x/65/d0/e0/65d0e050f8b7a423ead047b2bab399fe.jpg)',
+  'url(https://i.pinimg.com/736x/29/52/f3/2952f3efc8f57c89910b437a11cb9fbb.jpg)',
+  'url(https://i.pinimg.com/736x/a4/9e/46/a49e4673fbaa8c5916d2fdb02121501b.jpg)',
+  'url(https://i.pinimg.com/736x/a7/56/0c/a7560ca9155b17d418208241d04ebb30.jpg)',
 ];
 const cardImages = [...images, ...images];
 cardImages.sort(() => 0.5 - Math.random());

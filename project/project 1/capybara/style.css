@@ -31,7 +31,7 @@ body {
   #home a:hover {
     background: none;
     transform: rotate(-7deg);
-    color: #ff5733; 
+    color: #834eff; 
   }
 
   .main-container {
@@ -49,7 +49,7 @@ body {
   .title-container h1 {
     font-family: Nudles;
     font-size: 70px;
-    color: #333;
+    color: #000000;
   }
   
   .game-container {
@@ -95,7 +95,7 @@ body {
   }
   
   .card .front {
-    background-color: #ff5733;
+    background-color: #834eff;
   }
   
   .card .back {
