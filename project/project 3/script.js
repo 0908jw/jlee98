@@ -5,8 +5,8 @@ class FogParticle {
         this.canvasHeight = canvasHeight;
         this.x = Math.random() * canvasWidth;
         this.y = Math.random() * canvasHeight;
-        this.xVelocity = (Math.random() - 0.5) * 0.7;  
-        this.yVelocity = (Math.random() - 0.5) * 0.7;
+        this.xVelocity = (Math.random() - 0.5) * 1;
+        this.yVelocity = (Math.random() - 0.5) * 1;
         this.image = null;
     }
 
@@ -42,7 +42,7 @@ class FogParticle {
 }
 
 class Fog {
-    constructor({ selector, density = 50, velocity = 1, particle } = {}) {
+    constructor({ selector, density = 50, velocity = 1, particle }) {
         this.canvas = document.querySelector(selector);
         this.ctx = this.canvas.getContext('2d');
 
@@ -86,10 +86,6 @@ class Fog {
 
     _render() {
         this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-
-        this.ctx.fillStyle = "rgba(10, 15, 29, 1)";
-        this.ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
-
         this.particles.forEach(p => p.render());
         requestAnimationFrame(() => this._render());
     }
@@ -101,3 +97,30 @@ new Fog({
     density: 50,
     velocity: 1
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const title = document.getElementById("title");
+    const container = document.getElementById("container");
+
+    title.addEventListener("click", function () {
+        title.classList.add("fade-out");
+
+        setTimeout(() => {
+            title.style.display = "none";  
+            container.style.display = "flex";  
+            setTimeout(() => {
+                container.style.opacity = "1"; 
+            }, 100);
+        }, 1000);
+    });
+});
+
+document.getElementById("button").addEventListener("click", function () {
+    window.location.href = "https://newart.city/show/deja-reve";
+});
+
+
+
+
+
