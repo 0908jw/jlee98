@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../project 3/portal.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="sub">
+          They say there’s no way back. If you don’t believe them, will you step through the door that shouldn’t exist?
+        </div>
+        <div>
+          <button class="button" id="yes">Yes</button>
+          <button class="button" id="no">No</button>
+        </div>
+      </div>
+    <canvas id="fog"></canvas>
+      <script src="../project 3/portal.js"></script>
+      <script>
+          document.getElementById("yes").addEventListener("click", function () {
+              window.location.href = "https://newart.city/show/deja-reve"; 
+          });
+  
+          document.getElementById("no").addEventListener("click", function () {
+              window.location.href = "https://example.com/no-path"; 
+          });
+      </script>
+</body>
+</html>

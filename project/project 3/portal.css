@@ -18,30 +18,14 @@ body, html {
 }
 
 
-.title {
-    font-family: Cirka;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 300px;  
-    color: rgb(194, 194, 194);
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 0.9;
-    z-index: 3;
-    cursor: pointer;
-    transition: text-shadow 0.6s ease-in-out, opacity 1s ease-in-out, filter 0.6s ease-in-out;
-}
-
 .container {
+    display: flex;
+    flex-direction: column;
     position: fixed; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
     transition: opacity 1s ease-in;
-    display: none;  
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -50,7 +34,7 @@ body, html {
     max-width: 800px;
     text-align: center;
     box-sizing: border-box;
-    z-index: 3;
+    z-index: 5;
 }
 
 .sub {
@@ -64,7 +48,8 @@ body, html {
     padding: 0 9rem;
 }
 
-#button {
+.button {
+    margin: 0 20px 0 20px;
     padding: 7px 13px;
     background-color: transparent;
     border: 1.4px solid rgba(194, 194, 194, 0.9);
@@ -77,23 +62,10 @@ body, html {
     transition: background-color 0.3s ease-in-out, filter 0.6s ease-in-out;
 }
 
-#button:hover {
+.button:hover {
     filter: blur(3px);
 }
 
-
-.title.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.title:hover {
-    text-shadow: 
-        0 0 15px rgb(194, 194, 194, 0.6), 
-        0 0 25px rgb(194, 194, 194, 0.4), 
-        0 0 35px rgb(194, 194, 194, 0.2);
-        filter: blur(3px);
-}
 
 canvas {
     position: absolute;
