@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("button").addEventListener("click", function () {
-    window.location.href = "https://newart.city/show/deja-reve";
+    window.location.href = "https://newart.city/show/the-portals";
 });
 
 
