@@ -16,15 +16,17 @@ let micStarted = false;
 let isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  let s = min(windowWidth, windowHeight);
+  createCanvas(s, s);
   angleMode(DEGREES);
+  textFont('monospace');
   fft = new p5.FFT();
 
   cam = createCapture(VIDEO);
   cam.size(width, height);
   cam.hide();
 
-  vinylRadius = min(width, height) * 0.35;
+  vinylRadius = s * 0.35;
   blurBuffer = createGraphics(width, height);
   blurMask = createGraphics(width, height);
 }
@@ -43,6 +45,7 @@ function draw() {
   masked.mask(blurMask.get());
   image(masked, 0, 0);
 
+  push();
   translate(width / 2, height / 2);
   if (isRecording) rotationAngle += 0.1;
   rotate(rotationAngle);
@@ -57,27 +60,25 @@ function draw() {
     let r = vinylRadius * 0.4 + radiusOffset + random(-1, 1);
     let a = angle - 90 + random(-0.6, 0.6);
 
-    if (level > 0.01) {
-      if (random() < 0.4) {
+    //volume
+    if (level > 0.02) {
+      if (random() < 0.35) {
         let h = map(level, 0, 0.3, 0, 200);
         volumeHistory.push({ angle: a, radius: r, height: h });
       }
 
-      if (treble > 160) {
-        symbolHistory.push({ angle: a, radius: vinylRadius * 0.7, symbol: "∆", size: 20 });
-      }
-
       if (frameCount % 30 === 0) {
-        symbolHistory.push({ angle: a, radius: r, symbol: "::", size: 18 });
+        symbolHistory.push({ angle: a, radius: r, symbol: "♒︎", size: 20 });
       }
 
       if (random() < 0.2) {
         dotHistory.push({ angle: a + random(-10, 10), radius: r + random(-8, 8), size: random(3, 6) });
       }
 
+      //wave ring
       let waveformTrigger = isMobile
         ? (level > 0.000005 || bass > 0.5)
-        : (level > 0.05 || bass > 30);
+        : (level > 0.04 || bass > 30);
 
       if (waveformTrigger) {
         let ringR = random(10, 40);
@@ -160,6 +161,37 @@ function draw() {
     strokeWeight(1);
     ellipse(0, 0, vinylRadius * 0.15 + sin(frameCount * 1.5) * 4);
   }
+  pop();
+
+  resetMatrix();
+  textFont('monospace');
+  textSize(10);
+  fill(255);
+  noStroke();
+  textAlign(LEFT, BOTTOM);
+
+let legend = [
+  "◌   Pulse",
+  "♒︎   Rhythm",
+  "•   White Noise",
+  "|   Amplitude"
+];
+
+for (let i = 0; i < legend.length; i++) {
+  text(legend[i], 10, height - 40 - i * 12);
+}
+
+  let now = new Date();
+  let dateStr = now.toLocaleDateString();
+  let timeStr = now.toLocaleTimeString();
+
+  textAlign(LEFT, TOP);
+  text(dateStr, 10, 10);
+  textAlign(RIGHT, TOP);
+  text(timeStr, width - 10, 10);
+
+  textAlign(CENTER, BOTTOM);
+  text(isRecording ? "Detecting sound" : "Paused", width / 2, height - 8);
 }
 
 function drawVinyl() {
@@ -192,15 +224,15 @@ function toggleRecording() {
         isRecording = true;
       });
     } else {
-      // 🎯 Pause/resume instead of reset
       isRecording = !isRecording;
     }
   }
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  vinylRadius = min(width, height) * 0.35;
+  let s = min(windowWidth, windowHeight);
+  resizeCanvas(s, s);
+  vinylRadius = s * 0.35;
   blurBuffer = createGraphics(width, height);
   blurMask = createGraphics(width, height);
 }
